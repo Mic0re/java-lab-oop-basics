@@ -18,17 +18,17 @@ public class Main {
         String binFile = args[1];
 
         List<String[]> strings = CsvReader.readCsvFile(sourceFile, ";");
-        List<IUniversityPerson> people = new ArrayList<>();
+        List<IZoo> people = new ArrayList<>();
 
         for (String[] line: strings) {
-            people.add(PersonUtils.initializePerson(line));
+            people.add(AnimalUtils.initializePerson(line));
         }
 
         people.forEach(System.out::println);
 
         SerializeUtils.serialize(people, binFile);
-        List<IUniversityPerson> newPersons = (List<IUniversityPerson>) SerializeUtils.deserialize(binFile);
-        System.out.println("Новые люди:");
+        List<IZoo> newPersons = (List<IZoo>) SerializeUtils.deserialize(binFile);
+        System.out.println("Новый зоопарк:");
         newPersons.forEach(System.out::println);
     }
 }

@@ -1,6 +1,6 @@
 # Compiled class file
 *.class
-out
+out/*
 
 # Log file
 *.log
@@ -24,4 +24,4 @@ out
 hs_err_pid*
 replay_pid*
 
-.idea
+.idea/*
