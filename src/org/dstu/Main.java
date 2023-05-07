@@ -5,9 +5,7 @@ import org.dstu.util.CsvReader;
 import org.dstu.util.SerializeUtils;
 
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
-import java.util.function.Function;
 
 public class Main {
     public static void main(String[] args) {
