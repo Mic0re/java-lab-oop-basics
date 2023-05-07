@@ -1,13 +1,13 @@
 package org.dstu;
 
-import org.dstu.domain.IUniversityPerson;
-import org.dstu.domain.Student;
-import org.dstu.domain.Teacher;
+import org.dstu.domain.*;
 import org.dstu.util.CsvReader;
 import org.dstu.util.SerializeUtils;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.function.Function;
 
 public class Main {
     public static void main(String[] args) {
@@ -21,12 +21,9 @@ public class Main {
 
         List<String[]> strings = CsvReader.readCsvFile(sourceFile, ";");
         List<IUniversityPerson> people = new ArrayList<>();
+
         for (String[] line: strings) {
-            if (line[0].equals("0")) {
-                people.add(new Student(line));
-            } else {
-                people.add(new Teacher(line));
-            }
+            people.add(PersonUtils.initializePerson(line));
         }
 
         people.forEach(System.out::println);
